@@ -489,7 +489,245 @@
         #imagePreview img {
     box-shadow: var(--shadow);
 }
+.drop-zone {
+    border: 3px dashed #E2E8F0;
+    border-radius: 16px;
+    padding: 50px 30px;
+    text-align: center;
+    transition: var(--transition);
+    background: var(--body-bg);
+    cursor: pointer;
+    position: relative;
+}
 
+.drop-zone:hover {
+    border-color: var(--primary);
+    background: rgba(108, 99, 255, 0.05);
+}
+
+.drop-zone.drag-over {
+    border-color: var(--primary);
+    background: rgba(108, 99, 255, 0.1);
+    transform: scale(1.02);
+}
+
+.drop-zone i {
+    font-size: 3.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.drop-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.drop-subtext {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin: 10px 0;
+}
+
+.btn-browse {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 10px;
+}
+
+.btn-browse:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.drop-zone {
+    border: 3px dashed #E2E8F0;
+    border-radius: 16px;
+    padding: 50px 30px;
+    text-align: center;
+    transition: var(--transition);
+    background: var(--body-bg);
+    cursor: pointer;
+    position: relative;
+}
+
+.drop-zone:hover {
+    border-color: var(--primary);
+    background: rgba(108, 99, 255, 0.05);
+}
+
+.drop-zone.drag-over {
+    border-color: var(--primary);
+    background: rgba(108, 99, 255, 0.1);
+    transform: scale(1.02);
+}
+
+.drop-zone i {
+    font-size: 3.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.drop-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 5px;
+}
+
+.drop-subtext {
+    font-size: 0.9rem;
+    color: var(--gray);
+    margin: 10px 0;
+}
+
+.btn-browse, .btn-camera {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-browse:hover, .btn-camera:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-camera {
+    background: var(--secondary);
+}
+
+.btn-camera:hover {
+    background: #e0557a;
+}
+
+/* Camera Modal */
+.camera-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.camera-container {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 800px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.camera-header {
+    padding: 20px;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.camera-header h3 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.close-camera {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition);
+}
+
+.close-camera:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+#cameraVideo {
+    width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+}
+
+.camera-controls {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-capture, .btn-retake, .btn-use-photo {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+}
+
+.btn-capture {
+    background: var(--danger);
+}
+
+.btn-capture:hover {
+    background: #d32f2f;
+    transform: scale(1.05);
+}
+
+.btn-retake {
+    background: var(--warning);
+}
+
+.btn-retake:hover {
+    background: #F57C00;
+}
+
+.btn-use-photo {
+    background: var(--success);
+}
+
+.btn-use-photo:hover {
+    background: #388E3C;
+}
     </style>
 </head>
 <body>
@@ -555,14 +793,54 @@
                 </div>
             </div>
 
-            <div class="card">
+           <div class="card">
     <h2><i class="fas fa-upload"></i> Upload Result Image</h2>
 
     <div class="form-group">
         <label>Upload Your Marksheets / Result Image</label>
-        <input type="file" id="resultImage" accept="image/*">
+        
+        <div id="dropZone" class="drop-zone">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p class="drop-text">Drag & drop your image here</p>
+            <p class="drop-subtext">or</p>
+            <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+                <button type="button" class="btn-browse">
+                    <i class="fas fa-folder-open"></i> Browse Files
+                </button>
+                <button type="button" class="btn-camera">
+                    <i class="fas fa-camera"></i> Take Photo
+                </button>
+            </div>
+            <input type="file" id="resultImage" accept="image/*" style="display: none;">
+        </div>
+        
         <p class="info-text"><i class="fas fa-info-circle"></i> Supported: JPG, PNG.  
         The AI will auto-detect subjects, credits & grades.</p>
+    </div>
+
+    <!-- Camera Modal -->
+    <div id="cameraModal" class="camera-modal" style="display: none;">
+        <div class="camera-container">
+            <div class="camera-header">
+                <h3><i class="fas fa-camera"></i> Capture Photo</h3>
+                <button class="close-camera">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <video id="cameraVideo" autoplay playsinline></video>
+            <canvas id="cameraCanvas" style="display: none;"></canvas>
+            <div class="camera-controls">
+                <button class="btn-capture">
+                    <i class="fas fa-circle"></i> Capture
+                </button>
+                <button class="btn-retake" style="display: none;">
+                    <i class="fas fa-redo"></i> Retake
+                </button>
+                <button class="btn-use-photo" style="display: none;">
+                    <i class="fas fa-check"></i> Use Photo
+                </button>
+            </div>
+        </div>
     </div>
 
     <div id="imagePreview" style="margin-top: 15px; display:none;">
@@ -914,28 +1192,193 @@
                 }, 3000);
             }
 
-            // ============================
-            // PASTE YOUR NEW IMAGE ANALYSIS CODE HERE
-            // ============================
-            // Upload → preview
-            document.getElementById("resultImage").addEventListener("change", function (e) {
-                const file = e.target.files[0];
-                if (!file) return;
+           // ============================
+// IMAGE UPLOAD & CAMERA CODE
+// ============================
 
-                const url = URL.createObjectURL(file);
-                document.getElementById("previewImg").src = url;
-                document.getElementById("imagePreview").style.display = "block";
+// DOM Elements for upload/camera
+const dropZone = document.getElementById('dropZone');
+const fileInput = document.getElementById('resultImage');
+const browseBtn = document.querySelector('.btn-browse');
+const cameraBtn = document.querySelector('.btn-camera');
+const cameraModal = document.getElementById('cameraModal');
+const cameraVideo = document.getElementById('cameraVideo');
+const cameraCanvas = document.getElementById('cameraCanvas');
+const closeCameraBtn = document.querySelector('.close-camera');
+const captureBtn = document.querySelector('.btn-capture');
+const retakeBtn = document.querySelector('.btn-retake');
+const usePhotoBtn = document.querySelector('.btn-use-photo');
+
+let cameraStream = null;
+let capturedImageData = null;
+
+// Browse button click
+browseBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    fileInput.click();
+});
+
+// Camera button click
+cameraBtn.addEventListener('click', async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    await openCamera();
+});
+
+// Click on drop zone (but not on buttons)
+dropZone.addEventListener('click', (e) => {
+    if (e.target === dropZone || e.target.closest('.drop-zone') && !e.target.closest('button')) {
+        fileInput.click();
+    }
+});
+
+// Drag events
+dropZone.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    dropZone.classList.add('drag-over');
+});
+
+dropZone.addEventListener('dragleave', () => {
+    dropZone.classList.remove('drag-over');
+});
+
+dropZone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropZone.classList.remove('drag-over');
+    
+    const files = e.dataTransfer.files;
+    if (files.length > 0) {
+        fileInput.files = files;
+        handleFileSelect(files[0]);
+    }
+});
+
+// Handle file selection
+function handleFileSelect(file) {
+    if (file && file.type.startsWith('image/')) {
+        const url = URL.createObjectURL(file);
+        document.getElementById("previewImg").src = url;
+        document.getElementById("imagePreview").style.display = "block";
+    }
+}
+
+// File input change listener
+fileInput.addEventListener("change", function (e) {
+    const file = e.target.files[0];
+    if (file) {
+        handleFileSelect(file);
+    }
+});
+
+// Camera functions
+async function openCamera() {
+    try {
+        cameraStream = await navigator.mediaDevices.getUserMedia({ 
+            video: { 
+                facingMode: 'environment',
+                width: { ideal: 1920 },
+                height: { ideal: 1080 }
+            } 
+        });
+        
+        cameraVideo.srcObject = cameraStream;
+        cameraModal.style.display = 'flex';
+        cameraVideo.style.display = 'block';
+        captureBtn.style.display = 'inline-flex';
+        retakeBtn.style.display = 'none';
+        usePhotoBtn.style.display = 'none';
+    } catch (error) {
+        console.error('Error accessing camera:', error);
+        alert('Unable to access camera. Please check permissions or use file upload instead.');
+    }
+}
+
+function closeCamera() {
+    if (cameraStream) {
+        cameraStream.getTracks().forEach(track => track.stop());
+        cameraStream = null;
+    }
+    cameraModal.style.display = 'none';
+    cameraVideo.style.display = 'block';
+    captureBtn.style.display = 'inline-flex';
+    retakeBtn.style.display = 'none';
+    usePhotoBtn.style.display = 'none';
+}
+
+function capturePhoto() {
+    const context = cameraCanvas.getContext('2d');
+    cameraCanvas.width = cameraVideo.videoWidth;
+    cameraCanvas.height = cameraVideo.videoHeight;
+    
+    context.drawImage(cameraVideo, 0, 0, cameraCanvas.width, cameraCanvas.height);
+    capturedImageData = cameraCanvas.toDataURL('image/jpeg', 0.9);
+    
+    // Show captured image in video element
+    cameraVideo.style.display = 'none';
+    cameraVideo.pause();
+    
+    // Create img element to show captured photo
+    const img = new Image();
+    img.src = capturedImageData;
+    img.style.width = '100%';
+    img.style.display = 'block';
+    cameraVideo.parentNode.insertBefore(img, cameraVideo.nextSibling);
+    
+    // Update buttons
+    captureBtn.style.display = 'none';
+    retakeBtn.style.display = 'inline-flex';
+    usePhotoBtn.style.display = 'inline-flex';
+}
+
+function retakePhoto() {
+    // Remove captured image
+    const img = cameraModal.querySelector('img');
+    if (img) img.remove();
+    
+    // Show video again
+    cameraVideo.style.display = 'block';
+    cameraVideo.play();
+    
+    // Update buttons
+    captureBtn.style.display = 'inline-flex';
+    retakeBtn.style.display = 'none';
+    usePhotoBtn.style.display = 'none';
+}
+
+function usePhoto() {
+    if (capturedImageData) {
+        document.getElementById("previewImg").src = capturedImageData;
+        document.getElementById("imagePreview").style.display = "block";
+        
+        // Convert base64 to file and set to input
+        fetch(capturedImageData)
+            .then(res => res.blob())
+            .then(blob => {
+                const file = new File([blob], "camera-capture.jpg", { type: "image/jpeg" });
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                fileInput.files = dataTransfer.files;
             });
+    }
+    closeCamera();
+}
 
-            // Convert file → base64
-            function fileToBase64(file) {
-                return new Promise((resolve, reject) => {
-                    const reader = new FileReader();
-                    reader.readAsDataURL(file);
-                    reader.onload = () => resolve(reader.result);
-                    reader.onerror = reject;
-                });
-            }
+// Event listeners for camera
+closeCameraBtn.addEventListener('click', closeCamera);
+captureBtn.addEventListener('click', capturePhoto);
+retakeBtn.addEventListener('click', retakePhoto);
+usePhotoBtn.addEventListener('click', usePhoto);
+
+// Convert file → base64
+function fileToBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = reject;
+    });
+}
 
             document.getElementById("analyzeImageBtn").addEventListener("click", async () => {
                 const fileInput = document.getElementById("resultImage");
