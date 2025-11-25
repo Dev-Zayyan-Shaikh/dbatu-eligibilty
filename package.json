@@ -1,0 +1,13 @@
+{
+  "name": "dbatu-eligibility",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel start"
+  },
+  "dependencies": {
+    "openai": "^4.72.0"
+  }
+}
